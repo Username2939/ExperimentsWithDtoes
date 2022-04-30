@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32422.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingExtensionMethod", "HeyJsonSerializerIgnoreStuffWithThisCodeword\UsingExtensionMethod.csproj", "{BF8DF5AB-0906-4981-B0B4-0AF4C257DEA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingConstructor", "UsingConstructor\UsingConstructor.csproj", "{FA0DA3F0-6C37-4A10-BAA4-E52BA1AEB644}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingConstructor", "UsingConstructor\UsingConstructor.csproj", "{FA0DA3F0-6C37-4A10-BAA4-E52BA1AEB644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingJsonContract", "UsingJsonContract\UsingJsonContract.csproj", "{B40C127E-D6F9-4E84-91E7-D8FD63D7DA3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FA0DA3F0-6C37-4A10-BAA4-E52BA1AEB644}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA0DA3F0-6C37-4A10-BAA4-E52BA1AEB644}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA0DA3F0-6C37-4A10-BAA4-E52BA1AEB644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B40C127E-D6F9-4E84-91E7-D8FD63D7DA3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B40C127E-D6F9-4E84-91E7-D8FD63D7DA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B40C127E-D6F9-4E84-91E7-D8FD63D7DA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B40C127E-D6F9-4E84-91E7-D8FD63D7DA3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
