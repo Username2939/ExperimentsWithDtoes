@@ -1,0 +1,9 @@
+Works fine with nulls, but obviously it breaks with false positives, i.e. values that the user actually wants to be null.
+
+One way to avoid this is to use a custom constant value, maybe a randomly generated string with 64 characters. (2^70 combinations)
+
+From a preliminary search, this requires writing a custom contract, as detailed here:
+
+https://stackoverflow.com/questions/13588022/exclude-property-from-serialization-via-custom-attribute-json-net
+
+If this approach works, the randomly generated string should still change on a project basis, to minimize its exploitation.
