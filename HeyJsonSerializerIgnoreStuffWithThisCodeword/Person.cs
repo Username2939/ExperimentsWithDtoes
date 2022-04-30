@@ -1,4 +1,4 @@
-﻿namespace HeyJsonSerializerIgnoreStuffWithThisCodeword
+﻿namespace UsingExtensionMethod
 {
     public record Person(
         string? FirstName,
