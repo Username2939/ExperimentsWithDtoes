@@ -1,0 +1,20 @@
+Works fine with nulls, but obviously it breaks with false positives, i.e. values that the user actually wants to be null.
+
+One way to avoid this is to use a custom constant value, maybe a randomly generated string with 64 characters. (2^70 combinations)
+
+From a preliminary search, this requires writing a custom contract, as detailed here:
+
+https://stackoverflow.com/questions/13588022/exclude-property-from-serialization-via-custom-attribute-json-net
+
+If this approach works, the randomly generated string should still change on a project basis, to minimize its exploitation.
+
+-----
+
+It should be noted that variables with types such as DateTime or TimeSpan don't support being assigned the aforementioned string, so the solution looks more like a set of randomly generated values, one per type covered by JSON. For example...
+
+int: 2147483647
+long 21474836
+string: ajdskfjasdkfjns
+DateTime: 19/11/3878
+
+... and so on and so forth. The DateTime.Year should probably be at least 3000
