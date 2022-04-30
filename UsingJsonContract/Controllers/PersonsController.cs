@@ -23,58 +23,61 @@ namespace UsingJsonContract.Controllers
             );
         #endregion
 
-        [HttpGet("Name")]
-        public Person GetName()
+        [HttpGet("NameBySubtraction")]
+        public Person GetNameBySubtraction()  // "Give me everything except for these things"
             => Person with
             {
-                FirstName = Person.FirstName,
-                LastName = Person.LastName,
-                Age = null,
                 SocialSecurity = null,
                 BankAccount = null
             };
 
-        [HttpGet("NameAndAge")]
-        public Person GetNameAndAge()
-            => Person with
-            {
-                FirstName = Person.FirstName,
-                LastName = Person.LastName,
-                Age = Person.Age,
-                SocialSecurity = null,
-                BankAccount = null
-            };
+        [HttpGet("NameByAddition")]
+        public Person GetNameByAddition()     // "Give me these specific things" (requires a Constructor)
+            => new Person(
+                Person.FirstName,
+                Person.LastName,
+                Person.Age,
+                null,
+                null);
 
         [HttpGet("SomeSensitiveData")]
         public Person GetSomeSensitiveData()
-            => Person with
-            {
-                FirstName = null,
-                LastName = null,
-                Age = null,
-                SocialSecurity = Person.SocialSecurity,
-                BankAccount = Person.BankAccount with
-                {
-                    ID = Person.BankAccount.ID,
-                    AmountDeposited = null,
-                    DateLastActivity = null
-                }
-            };
+            => new Person(
+                Person.FirstName,
+                Person.LastName,
+                Person.Age,
+                null,
+                new BankAccount(
+                    BankAccount.ID,
+                    null,
+                    null
+                    )
+                );
 
         [HttpGet("AllSensitiveData")]
         public Person GetAllSensitiveData()
-            => Person with
+            => new Person(
+                Person.FirstName,
+                Person.LastName,
+                Person.Age,
+                null,
+                new BankAccount(
+                    BankAccount.ID,
+                    BankAccount.AmountDeposited,
+                    BankAccount.DateLastActivity
+                    )
+                );
+
+        [HttpPost("DoSomething")]
+        public void PostDoSomething(Person person) // TODO Fix, currently breaks in Swagger
+        {
+            var cleanPerson = person with
             {
-                FirstName = null,
-                LastName = null,
-                Age = null,
-                SocialSecurity = Person.SocialSecurity,
-                BankAccount = Person.BankAccount with
-                {
-                    ID = Person.BankAccount.ID,
-                    AmountDeposited = Person.BankAccount.AmountDeposited,
-                    DateLastActivity = Person.BankAccount.DateLastActivity
-                }
+                SocialSecurity = null,
+                BankAccount = null
             };
+
+            // Do something here ...
+        }
     }
 }
