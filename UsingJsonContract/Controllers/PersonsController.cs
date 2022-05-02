@@ -32,7 +32,7 @@ namespace UsingJsonContract.Controllers
             };
 
         [HttpGet("NameByAddition")]
-        public Person GetNameByAddition()     // "Give me these specific things" (requires a Constructor)
+        public Person GetNameByAddition()     // "Give me these specific things"
             => new Person(
                 Person.FirstName,
                 Person.LastName,
@@ -60,7 +60,7 @@ namespace UsingJsonContract.Controllers
                 Person.FirstName,
                 Person.LastName,
                 Person.Age,
-                null,
+                Person.SocialSecurity,
                 new BankAccount(
                     BankAccount.ID,
                     BankAccount.AmountDeposited,
@@ -69,15 +69,15 @@ namespace UsingJsonContract.Controllers
                 );
 
         [HttpPost("DoSomething")]
-        public void PostDoSomething(Person person) // TODO Fix, currently breaks in Swagger
+        public void PostDoSomething(Person person)
         {
-            var cleanPerson = person with
+            var cleanPerson = person with          // Stops attempts to inject illegal data
             {
                 SocialSecurity = null,
                 BankAccount = null
             };
 
-            // Do something here ...
+            // Do something with cleanPerson here ...
         }
     }
 }
